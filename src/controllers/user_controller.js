@@ -7,4 +7,4 @@ const registerUser = asynchandelar( async(req, res ) =>{
     })
 })
 
-export {registerUser}
+export  {registerUser}
