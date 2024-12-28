@@ -23,11 +23,12 @@ app.use(cookieParser());
 
 //IMPORT ROUTES
 
-import userRouter from "./routes/users.routes.js";
+import userRouter from "./routes/users_routes.js";
 
-app.use("api/v1/users",userRouter);
+// app.use("api/v1/users",userRouter);
+app.use("/api/v1/users", userRouter);
 
-// http://localhost:8000/api/v1/users/register
+// http://localhost:800/api/v1/users/register
 
 
 export default app;

@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+// const { Schema } = rpasswordequire("mongoose");
 
 import mongoose, {Schema} from "mongoose";
 
@@ -17,7 +17,7 @@ const UserSchema = new Schema(
             lowercase : true
         },
 
-        emil:{
+        email:{
             type : String,
             required : true,
             trim : true,
@@ -47,7 +47,7 @@ const UserSchema = new Schema(
 
         }, 
 
-        password : {
+         password: {
             type: String,
             requeired: [true," password is requeired"]
         },
@@ -116,4 +116,4 @@ UserSchema.method.generateAccessToken = function(){
 UserSchema.method.generateRefreshToken = function(){}
 
 
-export const User = mongoose.model("User",UserSchema);
+export const Usermodel = mongoose.model("User", UserSchema);

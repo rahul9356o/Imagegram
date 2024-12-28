@@ -1,41 +1,52 @@
 
 
-import { v2 as cloudinary } from 'cloudinary';
-import fs from "fs";
+// import { v2 as cloudinary } from 'cloudinary';
+// import fs from "fs";
 
-(async function()
-{
+// (async function()
+// {
 
-    // Configuration
-    cloudinary.config({ 
-        cloud_name: process.env.CLUDINARY_CLOUD_NAME, 
-        api_key: process.env.CLUDINARY_API_KEY,  
-        api_secret: process.env.CLUDINARY_API_SECRET // Click 'View API Keys' above to copy your API secret
-    });
+//     // Configuration
+//     cloudinary.config({ 
+//         cloud_name: process.env.CLUDINARY_CLOUD_NAME, 
+//         api_key: process.env.CLUDINARY_API_KEY,  
+//         api_secret: process.env.CLUDINARY_API_SECRET // Click 'View API Keys' above to copy your API secret
+//     });
 
-    const uplodOnCludinary = async (localFilePath) =>{
-        try {
-            if(!localFilePath) return null;
+//  }
+// })
 
+// // export {uplodOnCludinary}
+// export {uplodOnCludinary}
 
-            // file uplode on cloudinary
-           const responce = await cloudinary.uploader.upload(localFilePath, {
-
-                resource_type: 'auto'
-
-            })
+import {v2 as cloudinary} from "cloudinary"
+import fs from "fs"
 
 
-            //Flie has been uploded successfuly
-            console.log("File is uploded on cloudinary",responce.url);
-            return responce;
+cloudinary.config({ 
+             cloud_name: process.env.CLUDINARY_CLOUD_NAME, 
+            api_key: process.env.CLUDINARY_API_KEY,  
+            api_secret: process.env.CLUDINARY_API_SECRET // Click 'View API Keys' above to copy your API secret
+        });
 
-        } catch (error) {
-            fs.unlink(localFilePath);
-            // remove the localy saved temprary file as the uplode opretion got faild 
-            return null;
-        }
+const uploadOnCloudinary = async (localFilePath) => {
+    try {
+        if (!localFilePath) return null
+        //upload the file on cloudinary
+        const response = await cloudinary.uploader.upload(localFilePath, {
+            resource_type: "auto"
+        })
+        // file has been uploaded successfull
+        //console.log("file is uploaded on cloudinary ", response.url);
+        fs.unlinkSync(localFilePath)
+        return response;
+
+    } catch (error) {
+        fs.unlinkSync(localFilePath) // remove the locally saved temporary file as the upload operation got failed
+        return null;
     }
-})
+}
 
-export {uplodOnCludinary}
+
+
+export {uploadOnCloudinary}
