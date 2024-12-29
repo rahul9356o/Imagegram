@@ -1,23 +1,10 @@
 
-// import asynchandelar from "../utils/asynchandelar.js"
-// import { Usermodel } from "../models/users.model.js" 
-
-// const registerUser = asynchandelar( async(req, res ) =>{
-    
-//     const {fullname, username, email, password} = req.body
-
-//     console.log("Email is ", email);
-    
-//     })
 
 
-// import { asyncHandler } from "../utils/asyncHandler.js";
 import asynchandelar from "../utils/asynchandelar.js"
 import {ApiError} from "../utils/ApiError.js"
-// import Usermodel from "../models/user.model.js"
 import {Usermodel} from "../models/users_model.js"
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
-// import { ApiResponse } from "../utils/ApiResponse.js";
 import { ApiResponse } from "../utils/ApiResponce.js"
 
 

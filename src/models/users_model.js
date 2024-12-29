@@ -62,6 +62,7 @@ const UserSchema = new Schema(
     }
 )
 
+//password bcript
 
 UserSchema.pre("save", async function(next) {
 
@@ -73,10 +74,11 @@ UserSchema.pre("save", async function(next) {
 
 
 
-
+//methods
 UserSchema.method.isPasswordCorrect = async function(password){
 
     return await bcript.compare(password, this.password);
+
 }
 
 
