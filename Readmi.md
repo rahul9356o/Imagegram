@@ -1,9 +1,9 @@
 
 
-# packge 
+# packges
 
    1.nodemon 
-    npm -D nodemon => use for save allcode atomaticaly 
+    npm -D nodemon => use for save all code atomaticaly 
 
     2.dotenv 
 

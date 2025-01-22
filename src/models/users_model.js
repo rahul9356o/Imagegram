@@ -100,22 +100,36 @@ UserSchema.method.generateAccessToken = function(){
 
 }
 
-UserSchema.method.generateAccessToken = function(){
+// UserSchema.method.generateAccessToken = function(){
+
+//     jwt.sign(
+//     {
+//         _id : this._id,
+//         email : this.email,
+//         username : this.username,
+//         fullname : this.username
+//     },
+//     process.env.REFRESH_TOKEN ,
+//     {
+//          expiresIn : process.env.REFRESH_TOKEN_EXPIRY
+//     }
+//     )
+// }
+UserSchema.method.generateRefreshToken = function(){
 
     jwt.sign(
-    {
-        _id : this._id,
-        email : this.email,
-        username : this.username,
-        fullname : this.username
-    },
-    process.env.REFRESH_TOKEN ,
-    {
-         expiresIn : process.env.REFRESH_TOKEN_EXPIRY
-    }
-    )
+        {
+            _id : this._id,
+            email : this.email,
+            username : this.username,
+            fullname : this.username
+        },
+        process.env.REFRESH_TOKEN ,
+        {
+             expiresIn : process.env.REFRESH_TOKEN_EXPIRY
+        }
+        )
 }
-UserSchema.method.generateRefreshToken = function(){}
 
 
 export const Usermodel = mongoose.model("User", UserSchema);
