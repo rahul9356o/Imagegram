@@ -15,6 +15,7 @@ const generateAccesTokenAndRefreshToken = async (userid) => {
     user.save({ validateBeforeSave: false });
 
     return { accesToken, refreshToken };
+    
   } catch (error) {
     throw new ApiError(
       500,
@@ -164,4 +165,8 @@ const loginUser = asynchandelar(async (req, res) => {
     );
 });
 
-export { registerUser, registerUser };
+export {
+  registerUser,
+  loginUser
+
+ };

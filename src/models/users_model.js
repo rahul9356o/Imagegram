@@ -54,6 +54,7 @@ const UserSchema = new Schema(
     refreshTocken: {
       type: String,
     },
+
   },
 
   {
@@ -76,6 +77,8 @@ UserSchema.method.isPasswordCorrect = async function (password) {
   return await bcript.compare(password, this.password);
 };
 
+
+
 UserSchema.method.generateAccessToken = function () {
   jwt.sign(
     {
@@ -91,21 +94,6 @@ UserSchema.method.generateAccessToken = function () {
   );
 };
 
-// UserSchema.method.generateAccessToken = function(){
-
-//     jwt.sign(
-//     {
-//         _id : this._id,
-//         email : this.email,
-//         username : this.username,
-//         fullname : this.username
-//     },
-//     process.env.REFRESH_TOKEN ,
-//     {
-//          expiresIn : process.env.REFRESH_TOKEN_EXPIRY
-//     }
-//     )
-// }
 
 UserSchema.method.generateRefreshToken = function () {
   jwt.sign(
