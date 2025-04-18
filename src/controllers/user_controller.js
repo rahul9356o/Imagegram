@@ -24,6 +24,11 @@ const generateAccesTokenAndRefreshToken = async (userid) => {
   }
 };
 
+
+
+
+
+
 const registerUser = asynchandelar(async (req, res) => {
   // get user details from frontend
   // validation - not empty
@@ -97,6 +102,17 @@ const registerUser = asynchandelar(async (req, res) => {
     .status(201)
     .json(new ApiResponse(200, createdUser, "User registered Successfully"));
 });
+
+
+
+
+
+
+
+
+
+
+
 
 const loginUser = asynchandelar(async (req, res) => {
   // req body => data
