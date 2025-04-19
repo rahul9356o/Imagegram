@@ -2,7 +2,6 @@
 import { Router } from "express";
 import { registerUser } from "../controllers/user_controller.js"
 
-// import { upload } from "../middlewares/multer.middleware.js";
 import { upload } from "../middlewares/multer.middelware.js"
 
 
@@ -31,7 +30,7 @@ router.route("/register").post(
             maxCount: 1
         }, 
         {
-            name: "coverImage",
+            name: "coverimage",
             maxCount: 1
         }
     ]),
